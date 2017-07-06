@@ -25,7 +25,7 @@ terragrunt = {
 aws_region = "us-east-1"
 
 name          = "webserver-example-qa"
-instance_type = "t2.micro"
+instance_type = "t2.medium"
 
 min_size = 2
 max_size = 2
@@ -33,4 +33,4 @@ max_size = 2
 server_port = 8080
 elb_port    = 80
 
-message = "Hello, QA!"
+message = "Hello, QA! I've made some changes to my infrastructure. Let's see if Terraform applies this"
