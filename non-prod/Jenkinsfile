@@ -5,7 +5,7 @@ pipeline {
         stage('Plan') {
             steps {
                 dir('non-prod') {
-		    withAWS(profile: 'codeblock') {
+		    withAWS(credentials: 'codeblock-aws') {
 		        sh 'yes | terragrunt plan-all'
                     }
 		}
@@ -14,7 +14,7 @@ pipeline {
         stage('Apply') {
             steps {
                 dir('non-prod') {
-		    withAWS(profile: 'codeblock') {
+		    withAWS(credentials: 'codeblock-aws') {
                         sh 'terragrunt'
                     }
 		}
