@@ -4,15 +4,19 @@ pipeline {
     stages {
         stage('Plan') {
             steps {
-	    	dir('non-prod') {
-		    sh 'yes | terragrunt plan-all'
+                dir('non-prod') {
+		    withAWS(profile: 'codeblock') {
+		        sh 'yes | terragrunt plan-all'
+                    }
 		}
             }
         }
         stage('Apply') {
             steps {
                 dir('non-prod') {
-                    sh 'terragrunt'
+		    withAWS(profile: 'codeblock') {
+                        sh 'terragrunt'
+                    }
 		}
             }
         }
