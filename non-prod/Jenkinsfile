@@ -5,7 +5,7 @@ pipeline {
         stage('Plan') {
             steps {
 	    	dir('non-prod') {
-		    sh 'terragrunt'
+		    sh 'yes | terragrunt plan-all'
 		}
             }
         }
