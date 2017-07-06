@@ -2,19 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Plan') {
             steps {
-                echo 'Building..'
+	    	dir('non-prod') {
+		    sh 'terragrunt'
+		}
             }
         }
-        stage('Test') {
+        stage('Apply') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                dir('non-prod') {
+                    sh 'terragrunt'
+		}
             }
         }
     }
