@@ -6,7 +6,7 @@ terragrunt = {
     backend = "s3"
     config {
       encrypt = true
-      bucket = "terragrunt-example-non-prod-terraform-state"
+      bucket = "codeblock-sandbox-terragrunt-example-non-prod-terraform-state"
       key = "${path_relative_to_include()}/terraform.tfstate"
       region = "us-west-2"
       lock_table = "terraform-locks"
